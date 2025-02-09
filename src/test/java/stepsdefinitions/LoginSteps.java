@@ -37,8 +37,8 @@ public class LoginSteps {
 
     @When("the user enters valid credentials")
     public void userEntersValidCredentials() {
-        String username = excelUtils.getValue(0, 1); // Column 0, Row 1 for valid username
-        String password = excelUtils.getValue(1, 1); // Column 1, Row 1 for valid password
+        String username = excelUtils.getValue(0, 1);
+        String password = excelUtils.getValue(1, 1);
         loginPage.login(username, password); // Use the new login method
         logger.info("User entered valid credentials.");
         assertTrue("Login should be successful", loginPage.isLoginSuccessful());
@@ -48,9 +48,9 @@ public class LoginSteps {
 
     @When("the user enters an invalid username")
     public void userEntersInvalidUsername() {
-        String username = excelUtils.getValue(0, 2); // Column 0, Row 2 for invalid username
-        String password = excelUtils.getValue(1, 1); // Column 1, Row 1 for valid password
-        loginPage.login(username, password); // Use the new login method
+        String username = excelUtils.getValue(0, 2);
+        String password = excelUtils.getValue(1, 1);
+        loginPage.login(username, password);
         logger.info("User entered an invalid username.");
         assertTrue("Error message should be displayed", loginPage.isLoginFailed());
         assertEquals("Expected result should be failed login", "Failed Login", "Failed Login");
@@ -59,8 +59,8 @@ public class LoginSteps {
 
     @When("the user enters an invalid password")
     public void userEntersInvalidPassword() {
-        String username = excelUtils.getValue(0, 1); // Column 0, Row 1 for valid username
-        String password = excelUtils.getValue(1, 2); // Column 1, Row 2 for invalid password
+        String username = excelUtils.getValue(0, 1);
+        String password = excelUtils.getValue(1, 2);
         loginPage.login(username, password); // Use the new login method
         logger.info("User entered an invalid password.");
         assertTrue("Error message should be displayed", loginPage.isLoginFailed());
